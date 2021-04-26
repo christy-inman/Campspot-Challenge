@@ -1,1 +1,7 @@
-<p>search works!</p>
+<button (click)="search(searchEntry.startDate, searchEntry.endDate)">Search Reservations</button>
+<main *ngIf="availableCampsites.length else searching"> 
+
+</main>
+<ng-template #searching>
+ <p>Searching for available campsites for your chosen dates.</p>
+</ng-template>
