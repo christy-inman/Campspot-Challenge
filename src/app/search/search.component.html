@@ -1,7 +1,11 @@
 <button (click)="search(searchEntry.startDate, searchEntry.endDate)">Search Reservations</button>
 <main *ngIf="availableCampsites.length else searching"> 
-
+ <ul>
+     <li *ngFor="let campsite of availableCampsites">
+        {{campsite.name}}
+     </li>
+ </ul>
 </main>
 <ng-template #searching>
- <p>Searching for available campsites for your chosen dates.</p>
+ <p>Click the button to see available campsites for your chosen dates.</p>
 </ng-template>
