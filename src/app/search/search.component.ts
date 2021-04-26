@@ -33,17 +33,43 @@ export class SearchComponent implements OnInit {
   }
 
   search(start:string, end:string) {
+    let noGood: number[] = []
     const searchStart: Date = new Date(start)
     const searchEnd: Date = new Date(end)
 
-    const searchStartUTC = Date.UTC(searchStart.getFullYear(), searchStart.getMonth(), searchStart.getDate())
-    const searchEndUTC = Date.UTC(searchEnd.getFullYear(), searchEnd.getMonth(), searchEnd.getDate())
-    const msPerDay = 1000 * 60 * 60 * 24 
+    const searchStartUTC: number = Date.UTC(searchStart.getFullYear(), searchStart.getMonth(), searchStart.getDate())
+    const searchEndUTC: number = Date.UTC(searchEnd.getFullYear(), searchEnd.getMonth(), searchEnd.getDate())
+    const msPerDay:number = 1000 * 60 * 60 * 24 
 
-    let result = Math.floor((searchEndUTC - searchStartUTC) / msPerDay)
+    // let result = Math.floor((searchEndUTC - searchStartUTC) / msPerDay)
+    this.reservations.map( reservation => {
+      const reservationStart: Date = new Date(reservation.startDate)
+      const reservationEnd: Date = new Date(reservation.endDate)
+
+      const reservationStartUTC = Date.UTC(reservationStart.getFullYear(), reservationStart.getMonth(), reservationStart.getDate())
+      const reservationEndUTC = Date.UTC(reservationEnd.getFullYear(), reservationEnd.getMonth(), reservationEnd.getDate())
+
+      if(searchStartUTC > reservationEndUTC) {
+        const gap: number = Math.floor(((searchStartUTC - reservationEndUTC)/msPerDay)-1)
+        console.log('>', reservation)
+        console.log('>', gap)
+          if(gap === 1 && !noGood.includes(reservation.campsiteId)) {
+            noGood.push(reservation.campsiteId)
+            console.log(noGood)
+          }
+      } else if(searchEndUTC < reservationStartUTC) {
+        const gap: number = Math.floor(((reservationStartUTC - searchEndUTC)/msPerDay)-1)
+        console.log('woot', reservation)
+        console.log('woot', gap)
+        if(gap === 1 && !noGood.includes(reservation.campsiteId)) {
+          noGood.push(reservation.campsiteId)
+          console.log(noGood)
+        }
+      }
+    })
 
 
-    console.log('click', this.availableCampsites, searchStart, searchStartUTC, searchEnd, result)
+    console.log('click', this.availableCampsites, searchStart, searchStartUTC, searchEnd)
   }
 
 }
