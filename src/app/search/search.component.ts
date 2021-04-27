@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
 
     const searchStartUTC: number = Date.UTC(searchStart.getFullYear(), searchStart.getMonth(), searchStart.getDate())
     const searchEndUTC: number = Date.UTC(searchEnd.getFullYear(), searchEnd.getMonth(), searchEnd.getDate())
-console.log(searchStartUTC, searchEndUTC)
+
     this.filterCampsites(this.evaluateReservations(searchStartUTC, searchEndUTC))
   }
 
