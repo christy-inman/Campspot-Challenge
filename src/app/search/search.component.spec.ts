@@ -22,4 +22,10 @@ describe('SearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have <button> with "Search Reservations"', () => {
+    const buttonElement: HTMLElement = fixture.nativeElement
+    const button = buttonElement.querySelector('button')
+    expect(button?.textContent).toEqual('Search Reservations')
+  })
 });

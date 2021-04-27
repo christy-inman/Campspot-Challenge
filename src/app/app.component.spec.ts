@@ -1,11 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { SearchComponent } from './search/search.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        SearchComponent
       ],
     }).compileComponents();
   });
@@ -28,4 +30,11 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Campspot "Gap Rule" Challenge');
   });
+
+  it('should contain <app-search> component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const searchElement: HTMLElement = fixture.nativeElement
+    const component = searchElement.querySelector('app-search')
+    expect(component).toBeDefined()
+  })
 });
