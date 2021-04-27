@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
 
-## Environment Set Up
+## Environment Setup
 
 You'll first need to check your environment to make sure you have the proper tools and tools installed. If you recieve a version number when running any of the below commands, continue on to the next check. If you recieve an error along the lines of 'ng is not recognized' then please use the links or cli commands to install the missing item. It's always good to run the version check command after downloading or installing anything to confirm it worked.
 
@@ -21,7 +21,9 @@ Once you get a version return for each of those, you should have everything you 
 
 Open your preferred IDE, I use Visual Studio Code, which can be downloaded here https://code.visualstudio.com/download, but any modern IDE (i.e. atom, vim, etc) should work fine if you already have it installed. Clone this repo in the terminal of your IDE using the following git command.
       - `git clone https://github.com/christy-inman/Campspot-Challenge.git`
+      
 Your IDE may run an install automatically, but if not once the project is cloned and open run `npm i` to ensure all dependencies are installed and ready for the build.
+
 To see the project in your browser you can serve the code locally by running `ng serve`. Then navigate to `http://localhost:4200/` in your chosen browser, when it has successfully compiled the code you should see a 'Campspot "Gap Rule" Challenge' title, and a button that says 'Search Reservations' with a breif description.
 
 When you click the button it will run the code to search with the provided dates and reservations to check which ones are available without creating a one day gap, and then replace the button description with the names of available campsites.
@@ -30,11 +32,12 @@ When you click the button it will run the code to search with the provided dates
 If you would like to build without serving, you can run `ng build` instead, and the build artifacts will be placed in the `dist/` directory.
 
 
-## Running unit tests
+## Running Tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io). This will open an additional browser window, which may be hampered by some browser pop-up blockers.
+You can add the `--code-coverage` flag if you're interested in percentages of coverage.
 
 
-## Further help
+## Further Help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
