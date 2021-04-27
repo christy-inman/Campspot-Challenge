@@ -44,7 +44,7 @@ My first step to solving this was to read through the challenge requirements a c
 
 ## Other Considerations
 
-I actually found the tests to be very beneficial, even though challenging. Especially when I tested the evaluateReservations function with new dates. Writting that test made me realize a hole in my logic that I hadn't previously noticed or tested against. When I ran the test with dates that over lapped the reservations, it was still returning them like they were available, when they shouldn't have been. Seeing that allowed me to strengthen my if/if else statement to include a sheck for when the search overlaps the existing reservations. Upon updating this, the test started returning the expected result. Really great to see how unit tests support strong development, even on such a small scale.
+I actually found the tests to be very beneficial, even though challenging. Especially when I tested the evaluateReservations function with new dates. Writting that test made me realize a hole in my logic that I hadn't previously noticed or tested against. When I ran the test with dates that over lapped the reservations, it was still returning them like they were available, when they shouldn't have been. Seeing that allowed me to strengthen my if/if else statement to include a check for when the search overlaps the existing reservations. Upon updating this, the test started returning the expected result. Really great to see how unit tests support strong development, even on such a small scale.
 
 ## Further Help
 
