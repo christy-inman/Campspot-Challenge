@@ -34,7 +34,7 @@ export class SearchComponent implements OnInit {
 
   search(start:string, end:string) {
     this.availableCampsites = []
-    
+
     const searchStart: Date = new Date(start)
     const searchEnd: Date = new Date(end)
 
@@ -61,6 +61,10 @@ export class SearchComponent implements OnInit {
         gap = Math.floor(((searchStartUTC - reservationEndUTC)/msPerDay)-1)
       } else if(searchEndUTC < reservationStartUTC) {
         gap = Math.floor(((reservationStartUTC - searchEndUTC)/msPerDay)-1)
+      } else {
+        if(!notAvailable.includes(reservation.campsiteId)){
+          notAvailable.push(reservation.campsiteId)
+        }
       }
 
       if(gap === 1 && !notAvailable.includes(reservation.campsiteId)) {
